@@ -1,0 +1,153 @@
+dbname <- ''
+host   <- ''
+port   <- ''
+user   <- ''
+pwd    <- ''
+
+schema <- "rural_planner"
+schema_dev <- "rural_planner_dev"
+
+
+### DEMOGRAPHY ###
+input_path_demography <- "~/shared/rural_planner/data/pe/demography"
+file_names_demography <- c("dpto01.xlsx", 
+                "dpto02.xlsx",
+                "dpto03.xlsx",
+                "dpto04.xlsx",
+                "dpto05.xlsx",
+                "dpto06.xlsx",
+                "dpto07.xlsx",
+                "dpto08.xlsx",
+                "dpto09.xlsx",
+                "dpto10.xlsx",
+                "dpto11.xlsx",
+                "dpto12.xlsx",
+                "dpto13.xlsx",
+                "dpto14.xlsx",
+                "dpto15a.xlsx",
+                "dpto15b.xlsx",
+                "dpto16.xlsx",
+                "dpto17.xlsx",
+                "dpto18.xlsx",
+                "dpto19.xlsx",
+                "dpto20.xlsx",
+                "dpto21.xlsx",
+                "dpto22.xlsx",
+                "dpto23.xlsx",
+                "dpto24.xlsx",
+                "dpto25.xlsx"
+                )
+ 
+file_name_demography <- "missing_settlements_rural_eye.xlsx"
+
+table_settlements <- "settlements"
+table_kpis <- "settlements_kpis"
+
+kpisA <- 'distrito_kpis_A.csv'
+kpisB <- 'centros_poblados_kpis_B.csv'
+kpisC <- 'centros_poblados_kpis_C.csv'
+
+file_name_demography_kpis <- "kpis_2017_peru.xlsx"
+
+schools_file_name <- 'Padron_web.dbf'
+
+schools_summary_table <- 'schools_summary_aux'
+schools_by_category_indirect_table <- 'schools_by_category_indirect_10km_aux'
+settlements_20km_table <- 'distancias_poblados_20km_aux'
+school_radius_km <- 10 #in km
+
+schools_incomplete_settlements_table <- 'schools_incomplete_settlements_aux'
+table_settlements <- 'settlements_aux'
+schools_table <- 'schools_aux'
+
+### INFRASTRUCTURE ###
+input_path_infrastructure <- "~/shared/rural_planner_r/data/pe/infrastructure"
+
+table_yofc <- "sites_yofc"
+table_torres_andinas <- "sites_torres_andinas"
+table_regional_test  <- "test_regional"
+table_regional<- "sites_regional"
+table_pia <- "sites_pia"
+table_lambayeque <- "sites_lambayeque"
+table_gilat <- "sites_gilat"
+table_entel <- "sites_entel"
+table_ehas <- "sites_ehas"
+table_test_claro  <- "test_tower"
+table_claro <- "sites_claro"
+table_azteca <- "sites_azteca"
+table_test_macros  <- "test_macros"
+table_macros <- "sites_macros"
+table_sites_ka_migration <- "sites_ka_migration"
+table_3q_dev <- "sites_ka_migration_3q"
+table_infrastructure_global_ka_mi <- "infrastructure_global_ka_migration"
+table_infrastructure <- "infrastructure_global"
+sites_ka_matching_table <- "sites_ka_migration_matching"
+table_satellite_ka_beams <- "satellite_ka_beams"
+table_settlements <- "settlements"
+table_macros <- "sites_macros"
+table_ipt <- "sites_ipt"
+table_duplicates_ipt  <- "test_ipt_duplicates"
+table_points <- "sites_fiber_planned"
+table_femtos <- "sites_femtos"
+table_entel_interest <- "sites_pam"
+table_entel_interest_match <- "sites_pam_match"
+infra_match_table <- "sites_pam_infra_match"
+table_infrastrcuture_global_entel_interest <- "infrastructure_global_entel_interest"
+table_points_claro <- "sites_claro_fiber"
+table_lines_claro <- "pe_claro_fiber"
+table_asdvisia_fiber <- "cajamarca_fiber_nodes"
+table_advisia <- "advisia"
+table_access <- "infrastructure_access"
+table_transport <- "infrastructure_transport"
+table_towers <- "infrastructure_towers"
+table_traceability <- "infrastructure_traceability"
+v_infrastructure <- "v_infrastructure"
+table_old_id <- 'infrastructure_global_old_id_map'
+table_id_map <- 'infrastructure_id_map'
+
+
+
+### COVERAGE SOURCES ###
+atoll_folders_path <- "~/shared/rural_planner_r/data/pe/coverage/coberturasPeru105"
+schema_dev <-"rural_planner_dev"
+atoll_intermediate_table <- "peru_atoll_105_aux"
+atoll_final_table <- "peru_infra_atoll"
+claro_indirect_polygons_table <- 'claro_indirect_coverage_polygons'              
+facebook_polygons_tf_table_2g <- 'pe_tef_coverage_polygon_2g'  
+facebook_polygons_tf_table_3g <- 'pe_tef_coverage_polygon_3g' 
+facebook_polygons_tf_table_4g <- 'pe_tef_coverage_polygon_4g' 
+facebook_competitors_polygons_2g <- 'pe_all_coverage_polygon_2g'
+facebook_competitors_polygons_3g <- 'pe_all_coverage_polygon_3g'
+facebook_competitors_polygons_4g <- 'pe_all_coverage_polygon_4g'
+table_settlements <- 'settlements_aux'
+
+table_coverage <- 'coverage_aux'
+indirect_polygons_table <- 'indirect_coverage_polygons_aux'
+atoll_coverage_table <- 'peru_atoll_105'
+infrastructure_table <- 'infrastructure_global_aux'
+
+coverage_input_path <- "~/shared/rural_planner_r/data/pe/coverage/"
+
+coverage_file_name <- 'Listado Telcos LatAm v0.0.xlsx'
+coverage_sheet_name <- 'listado funcional'
+coverage_file_name_2 <- 'Copia de 5A Todos los Operadores 1Q 2018 (1).xlsx'
+
+
+#### DASHBOARD SOURCES ######
+settlements_view <-'v_centros_poblados'
+coverage_view <- 'v_coberturas'
+access_transport_view <- 'v_acceso_transporte'
+segmentation_view <- 'v_segmentacion'
+schools_view <- 'v_escuelas'
+clusters_view <- 'v_clusters'
+segmentation_c_view <- 'v_segmentacion_clusters'
+coverage_c_view <- 'v_coberturas_clusters'
+access_transport_c_view <- 'v_acceso_transporte_clusters'
+schools_c_view <- 'v_escuelas_clusters'
+
+towers_table <- 'infrastructure_global'
+clusters_table <- 'clusters'
+path_finder_node_table <- 'node_table_roads_aggregate'
+path_finder_radio_table <- 'path_finder_radio_3000_sites'
+path_finder_fiber_table <- 'path_finder_fiber_3000_sites'
+path_finder_final_table <- 'output_path_finder_test'

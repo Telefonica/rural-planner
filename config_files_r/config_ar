@@ -1,0 +1,84 @@
+dbname <- ''
+host   <- ''
+port   <- ''
+user   <- ''
+pwd    <- ''
+
+schema <- "rural_planner"
+schema_dev <- "rural_planner_dev"
+
+indirect_polygons_table <- 'indirect_coverage_polygons' 
+infrastructure_table <- 'infrastructure_global'
+
+coverage_input_path <- "~/shared/rural_planner/data/ar/coverage" 
+
+coverage_file_name<-'Listado Telcos LatAm v0.0.xlsx'
+coverage_sheet_name<-'listado funcional'
+
+coverage_file_name_2 <- 'Localidades V3.xlsx'
+coverage_file_name_3 <- 'Listadodelocalidadesconconectividadainternet_7299101833030381558.xlsx'
+
+table_settlements_ipt <- 'settlements_ipt'
+table_atoll <- 'movistar_coverage_polygons'
+table_coverage_ipt <- 'coverage_ipt'
+
+table_settlements <- 'settlements'
+table_coverage <- 'coverage'
+
+
+### DEMOGRAPHY ###
+input_path_demography <- "~/shared/rural_planner/data/ar/demography"
+
+table_analysis_ipt <- "settlements_analysis_ipt"
+table_kpis <- "settlements_kpis"
+table_clientes <- "clientes"
+table_alianzas <- "alianzas"
+table_partners <- "settlements_partners"
+table_categorization <- "settlements_local_projects"
+
+### INFRASTRUCTURE ###
+input_path_infrastructure <- "~/shared/rural_planner/data/ar/infrastructure"
+
+table_third_party_lines <- "third_party_lines"
+table_third_party_points <- "third_party_points"
+table_tasa_fixed <- "sites_tasa_fixed"
+table_tasa_test  <- "test_tasa"
+table_tasa <- "sites_tasa_ipt"
+table_silica_points <- "sites_silica"
+table_silica_lines <- "silica_lines"
+table_personal_test  <- "test_personal"
+table_personal <- "sites_personal"
+table_gigared <- "sites_gigared"
+table_claro_test  <- "test_claro"
+table_claro <- "sites_claro"
+table_arsat <- "sites_arsat"
+table_infrastructure <- "infrastructure_global"
+view_infrastructure <- "v_infrastructure"
+
+#### COVERAGE SOURCES ######
+
+facebook_polygons_tf_table_2g <- 'ar_tef_coverage_polygon_2g'
+facebook_polygons_tf_table_3g <- 'ar_tef_coverage_polygon_3g'
+facebook_polygons_tf_table_4g <- 'ar_tef_coverage_polygon_4g'
+
+facebook_competitors_polygons_2g <- 'ar_all_coverage_polygon_2g'
+facebook_competitors_polygons_3g <- 'ar_all_coverage_polygon_3g'
+facebook_competitors_polygons_4g <- 'ar_all_coverage_polygon_4g'
+
+#### DASHBOARD SOURCES ######
+settlements_view <-'v_centros_poblados'
+coverage_view <- 'v_coberturas'
+access_transport_view <- 'v_acceso_transporte'
+segmentation_view <- 'v_segmentacion'
+clusters_view <- 'v_clusters'
+clusters_kpis_view <- 'v_clusters_kpis'
+segmentation_c_view <- 'v_segmentacion_clusters'
+coverage_c_view <- 'v_coberturas_clusters'
+access_transport_c_view <- 'v_acceso_transporte_clusters'
+clusters_ipt_view <- 'v_clusters_ipt'
+clusters_kpis_ipt_view <- 'v_clusters_kpis_ipt'
+segmentation_c_ipt_view <- 'v_segmentacion_clusters_ipt'
+access_transport_c_ipt_view <- 'v_acceso_transporte_clusters_ipt'
+coverage_c_ipt_view <- 'v_coberturas_clusters_ipt'
+
+towers_table <- 'infrastructure_global'

@@ -1,0 +1,161 @@
+sql_path = /home/jovyan/shared/rural_planner_refactoring/sql
+country_folder = pe
+
+[db_config]
+database_name = peru
+user_name = 
+password = 
+host =
+port = 
+
+[api_config]
+apikey = 
+
+[transport_by_tower_params]
+schema  = rural_planner_dev
+
+output_table = transport_by_tower_all
+temporary_table = temp_transport_by_tower_all
+table_infrastructure = infrastructure_global
+
+mw_radius = 40000 
+fiber_radius = 2000
+los_interval = 20
+height_offset = 0
+distance_offset = 1000
+sources_omit = CLARO, ENTEL
+            
+third_party_owners = third_party_infra,
+regional_owners = lambayeque, azteca, regional_projects
+
+    [[owners_tx]]
+        [[[movistar]]]
+            owners = FEMTOS, FIBER_PLANNED, IPT, MACROS, OIMR
+            owner_name = movistar
+        [[[lambayeque]]]
+            owners = LAMBAYEQUE
+            owner_name = lambayeque
+        [[[azteca]]]
+            owners = AZTECA
+            owner_name = azteca
+        [[[fiber_providers]]]
+            owners = REGIONAL, YOFC, ADVISIA
+            owner_name = regional_projects
+        [[[other_mnos]]]
+            owners = GILAT, TORRES ANDINAS, EHAS, PIA
+            owner_name = third_party_infra
+            
+[segmentation_params]
+schema  = rural_planner_dev
+
+output_table = segmentation
+table_settlements = settlements
+table_coverage = coverage
+
+[clustering_params]
+schema  = rural_planner_dev
+
+output_table = clusters
+table_settlements = settlements
+table_coverage = coverage
+table_transport = transport_by_tower_all
+table_infrastructure = infrastructure_global
+table_franchises = 
+table_nodes_original = node_table
+table_nodes = node_table_copy
+table_schools = schools
+
+max_coverage_radius = 3000
+
+[clustering_3g_params]
+output_table = clusters_3g
+table_nodes = node_table_copy_3g
+table_nodes_original = node_table_3g
+
+[transport_gf_cl_params]
+output_table = transport_greenfield_clusters
+temporary_table = greenfield_clusters_los
+schema = rural_planner_dev
+
+[tower_to_tower_los_params]
+output_table = tower_to_tower_los_offset
+schema = rural_planner_dev
+los_interval = 40
+height_offset_jungle = 20
+
+[path_finder_roads_params]
+          
+schema = rural_planner_dev
+
+output_path = /home/jovyan/shared/rural_planner_refactoring/data
+output_filename = roads
+points_road_distance = 1
+max_road_radius = 10000
+threshold_distance = 500
+penalty = 1
+
+roads_table = roads_peru
+roads_table_dump = roads_line_merge
+roads_points_table = roads_points
+table_intersections = roads_intersections
+auxiliary_table = temp_centroids_and_towers
+table_cluster_points = clusters_road_points
+table_nodes_roads = node_table_roads
+table_clusters_links = clusters_links
+table_edges_roads = edge_table_roads
+table_node_replacement_map = node_replacement_map
+table_cluster_node_map = cluster_node_map
+   
+   [[road_types]]
+        [[[departamental]]]
+            type = Red departamental
+            url = http://mtcgeo2.mtc.gob.pe:8080/geoserver/MTC_pg/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=MTC_pg:red_vial_departamental_dic18&outputFormat=SHAPE-ZIP
+        [[[national]]]
+            type = 
+            url = http://mtcgeo2.mtc.gob.pe:8080/geoserver/MTC_pg/wfs?service=WFS&version=1.0.0&request=GetFeature&typeName=MTC_pg:red_vial_nacional_dic18&outputFormat=SHAPE-ZIP
+
+[path_finder_roads_cl_los_params]
+schema = rural_planner_dev
+table_settlements_kpis = settlements_kpis
+table_jungle = centroids_in_jungle
+table_output = cluster_node_map_los
+
+[path_finder_fiber]
+schema = rural_planner_dev
+
+output_table = output_3000_sites_fiber
+final_table = path_finder_fiber_3000_sites
+fiber_node_map_table = fiber_node_map
+initial_qw_table = path_finder_initial_quick_wins
+planned_fiber_nodes_table = fiber_nodes_planned
+
+ultra_qw_radius = 3000
+fiber_origin_radius = 5000
+
+    [[owners]]
+        [[[movistar]]]
+            sources = MACROS, FEMTOS, LAMBAYEQUE, PIA, IPT, CANON, OIMR, FIBER PLANNED, CLARO FIBER
+        [[[azteca]]]
+            sources = AZTECA,
+        [[[regional]]]
+            sources = REGIONAL, YOFC, ADVISIA
+        [[[third_party]]]
+            sources = GILAT, TORRES ANDINAS, EHAS 
+            
+
+[path_finder_mw]
+schema = rural_planner_dev
+
+output_table = output_3000_sites_radio
+final_table = path_finder_radio_3000_sites
+table_line_of_sight = tower_to_tower_line_of_sight_offset
+
+[path_finder_merge]
+schema = rural_planner_dev
+
+[views_params]
+schema  = rural_planner
+schema_dev = rural_planner_dev
+tables = indirect_covered_population.sql, competitors_presence_towers.sql
+views = v_acceso_transporte_clusters.sql, v_acceso_transporte.sql, v_centros_poblados.sql, v_clusters_kpis.sql, v_clusters.sql, v_coberturas_clusters.sql, v_coberturas.sql, v_escuelas_clusters.sql, v_escuelas.sql, v_poblacion_cubierta_indirecta.sql,  v_presencia_operadores_clusters.sql, v_presencia_operadores_torres.sql, v_segmentacion_clusters.sql, v_segmentacion.sql
+bc = indirect_covered_population_bc.sql,

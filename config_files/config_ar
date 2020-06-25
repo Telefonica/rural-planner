@@ -1,0 +1,87 @@
+
+sql_path = /home/jovyan/shared/rural_planner_refactoring/sql
+country_folder = ar
+
+[db_config]
+database_name = argentina
+user_name = 
+password = 
+host = 
+port = 
+
+[api_config]
+apikey =  
+
+[transport_by_tower_params]
+schema  = rural_planner_dev
+
+output_table = transport_by_tower_all
+temporary_table = temp_transport_by_tower_all
+table_infrastructure = infrastructure_global
+
+mw_radius = 40000 
+fiber_radius = 2000
+los_interval = 20
+height_offset = 0
+distance_offset = 0
+sources_omit = CLARO,CLARO_POINTS,PERSONAL,PERSONAL_POINTS
+            
+third_party_owners = arsat,silica,gigared,fiber_points
+regional_owners = ,
+
+    [[owners_tx]]
+        [[[tasa]]]
+            owners = TASA,TASA_FIXED
+            owner_name = tasa
+        [[[arsat]]]
+            owners = ARSAT,
+            owner_name = arsat
+        [[[silica]]]
+            owners = SILICA,
+            owner_name = silica
+        [[[gigared]]]
+            owners = GIGARED,
+            owner_name = gigared
+        [[[fiber_points]]]
+            owners = EPEC_POINTS, FIBRA_PROV_SAN_LUIS_POINTS, HG_PISADA_SION_POINTS, SION_USHUAIA_POINTS, TELMEX_POINTS
+            owner_name = fiber_points
+
+[segmentation_params]
+schema  = rural_planner_dev
+
+output_table = segmentation
+table_settlements = settlements
+table_coverage = coverage
+
+[clustering_params]
+schema  = rural_planner_dev
+
+output_table = clusters
+table_settlements = settlements
+table_coverage = coverage
+table_transport = transport_by_tower_all
+table_franchises = 
+table_infrastructure = infrastructure_global
+table_nodes_original = node_table
+table_nodes = node_table_copy
+table_schools = 
+
+max_coverage_radius = 5000
+
+[clustering_3g_params]
+output_table = clusters_3g
+table_nodes = node_table_copy_3g
+table_nodes_original = node_table_3g 
+
+[transport_gf_cl_params]
+output_table = transport_greenfield_clusters
+temporary_table = greenfield_clusters_los
+schema = rural_planner_dev
+
+[views_params]
+schema  = rural_planner
+schema_dev = rural_planner_dev
+tables = indirect_covered_population.sql,
+views = v_centros_poblados_ar.sql, v_acceso_transporte_all_ar.sql, v_segmentacion_ar.sql, v_coverage_ar.sql, v_clusters_ar.sql, v_clusters_kpis_ar.sql, v_acceso_transporte_clusters_all_ar.sql, v_coberturas_clusters_ar.sql, v_segmentacion_clusters_ar.sql, v_coverage_ar_ipt.sql, v_clusters_ar_ipt.sql, v_clusters_kpis_ar_ipt.sql, v_acceso_transporte_clusters_all_ar_ipt.sql, v_coberturas_clusters_ar_ipt.sql, v_segmentacion_clusters_ar_ipt.sql
+bc = BC_Argentina_tx_priorization_carlos.sql,
+

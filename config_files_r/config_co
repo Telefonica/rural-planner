@@ -1,0 +1,159 @@
+dbname <- ''
+host   <- ''
+port   <- ''
+user   <- ''
+pwd    <- ''
+
+schema <- 'rural_planner'
+schema_dev <- 'rural_planner_dev'
+schema_backup <- 'rural_planner_backup'
+
+### DEMOGRAPHY ###
+input_path_demography <- '~/shared/rural_planner/data/co/demography'
+
+OSM_url_start <- 'https://nominatim.openstreetmap.org/search?q='
+OSM_url_end <- '&format=json&polygon=0&polygon_text=1&limit=1&countrycodes=co'
+
+key_google_api <- ''
+
+#demography tables
+table_google <- 'co_settlements_google'
+table_settlements_polygons <-'co_settlements_polygons'
+table_households <- 'co_households'
+table_households_raw <- 'co_households_raw'
+table_admin_division_1 <- 'co_municipios'
+table_admin_division_2 <- 'co_departamentos'
+table_co_settlements <- 'co_settlements_colombia'
+temp_Table_census <-'co_population_census'
+table_settlements <- 'settlements'
+table_settlements_zrd <- 'settlements_zrd'
+table_zrd_unaggregated <- 'zrd_households'
+table_zrd <- 'zrd_summary'
+table_schools <- 'schools'
+table_energy_matching <- 'co_settlements_energy_matching'
+no_grid_table <- 'co_settlements_no_grid'
+table_settlements <- 'settlements'
+table_energy <- 'settlements_energy'
+
+
+### INFRASTRUCTURE ###
+input_path_infrastructure <- '~/shared/rural_planner/data/co/infrastructure'
+
+#infrastructucture tables
+table_uniti <- 'uniti_co'
+table_admin_div_2 <- 'co2_municipios'
+table_ufinet_temp <- 'ufinet_temp'
+table_ufinet <- 'co_ufinet'
+table_tigo <- 'tigo_co'
+table_tigo_test  <- 'test_tower'
+table_atp <- 'atp_co'
+table_roaming <- 'infrastructure_roaming'
+table_roaming_test  <- 'test_roaming'
+table_claro <- 'claro_co'
+table_casanare <- 'casanare_co'
+table_azteca <- 'azteca_co'
+table_anditel <- 'anditel_co'
+table_qmc <- 'qmc_co'
+table_pti <- 'pti_co'
+table_satellite_ka_beams <- 'satellite_ka_beams'
+infrastructure_table <- 'infrastructure_global'
+infrastructure_beams_table <- 'infrastructure_ka_beams'
+table_isp <- 'isp_co'
+table_atc <- 'atc_co'
+table_tef <- 'towers_co'
+table_tef_test  <- 'test_tower'
+table_towers_complete <- 'towers_complete_co'
+table_infrastructure_old <- 'infrastructure_global_backup'
+table_atoll_infrastructure <- 'proyecciones_qw_atoll'
+table_atoll_infrastructure_temp <- 'temp_proyecciones_qw_atoll'
+table_clusters <- 'clusters'
+
+
+table_atoll_infrastructure <- 'proyecciones_qw_atoll'
+table_atoll_infrastructure_temp <- 'temp_proyecciones_qw_atoll'
+infrastructure_table <- 'infrastructure_global'
+table_clusters <- 'clusters'
+qw_atoll_folder <- 'QW_KMZ'
+qw_atoll_input_file <- 'match_centroids_atoll.xlsx'
+
+
+### COVERAGE ###
+input_path_data_coverage <- '~/shared/rural_planner/data/co/coverage'
+facebook_folder <- 'facebookanalytics_tables'
+
+file_names_fb <- c('co_all_coverage_polygon_2g.csv',
+                'co_all_coverage_polygon_3g.csv',
+                'co_all_coverage_polygon_4g.csv',
+                'co_tef_coverage_polygon_2g.csv',
+                'co_tef_coverage_polygon_3g.csv',
+                'co_tef_coverage_polygon_4g.csv')
+                
+table_names_fb <- c('test_co_all_coverage_polygon_2g',
+                 'test_co_all_coverage_polygon_3g',
+                 'test_co_all_coverage_polygon_4g',
+                 'test_co_tef_coverage_polygon_2g',
+                 'test_co_tef_coverage_polygon_3g',
+                 'test_co_tef_coverage_polygon_4g')
+                 
+indirect_roaming_polygons_table <- 'indirect_coverage_roaming_polygons'
+infrastructure_roaming_table <- 'infrastructure_roaming'
+output_roaming_table_name <- 'coverage_roaming'
+
+telefonica_atoll_ouptut_table <- 'coverage_movistar_atoll'
+
+urlGSMTigo <- 'https://coberturadigital-prd-co.tigocloud.net/GSM/'
+urlUMTSTigo <- 'https://coberturadigital-prd-co.tigocloud.net/3G/'
+urlLTETigo <- 'https://coberturadigital-prd-co.tigocloud.net/4G/'
+
+folders_path_tigo <- '~/shared/rural_planner/data/co/coverage/coberturas_tigo'
+tigo_atoll_table <-  'tigo_coverage_polygons'
+
+urlGSMClaro <-'http://applications.claro.com.co/Minisites/AdminCobertura/mapImages/cob191115/'
+urlUMTSClaro <-'http://applications.claro.com.co/Minisites/AdminCobertura/mapImages/cob191117/'
+urlLTEClaro <-'http://applications.claro.com.co/Minisites/AdminCobertura/mapImages/cob191118/'
+
+folders_path_claro <- '~/shared/rural_planner/data/co/coverage/coberturas_claro'
+claro_atoll_table <- 'claro_coverage_polygons'
+
+
+coverage_input_path <- '~/shared/rural_planner/data/co/coverage'
+coverage_file_name <-'Listado Telcos LatAm v0.0.xlsx'
+coverage_sheet_name <-'listado funcional'
+
+coverage_file_name_2 <- '20190502 Res. 3484 - F6.Cobertura .xls'
+coverage_sheet_name_2 <- 'COBERTURA_MUNICIPAL_SERV_MOVIL'
+
+
+indirect_polygons_table <- 'indirect_coverage_polygons'
+facebook_polygons_tf_table_2g <- 'co_tef_coverage_polygon_2g'  
+facebook_polygons_tf_table_3g <- 'co_tef_coverage_polygon_3g' 
+facebook_polygons_tf_table_4g <- 'co_tef_coverage_polygon_4g' 
+facebook_competitors_polygons_2g <- 'co_all_coverage_polygon_2g'
+facebook_competitors_polygons_3g <- 'co_all_coverage_polygon_3g'
+facebook_competitors_polygons_4g <- 'co_all_coverage_polygon_4g'
+coverage_table <- 'coverage'
+
+coverage_schools_table <- 'schools_coverage'
+
+coverage_zrd_table <- 'coverage_zrd'
+
+
+### DASHBOARD SOURCES ###
+settlements_view <-'v_centros_poblados'
+coverage_view <- 'v_coberturas'
+access_transport_view <- 'v_acceso_transporte'
+segmentation_view <- 'v_segmentacion'
+clusters_view <- 'v_clusters'
+clusters_kpis_view <- 'v_clusters_kpis'
+segmentation_c_view <- 'v_segmentacion_clusters'
+coverage_c_view <- 'v_coberturas_clusters_all'
+access_transport_c_view <- 'v_acceso_transporte_clusters'
+settlements_kpis_view <- 'v_centros_poblados_kpis'
+infrastructure_view <- 'v_infrastructure'
+clusters_tx_view <- 'v_clusters_transporte'
+clusters_greenfield_tx_view <- 'v_clusters_greenfield_transporte'
+clusters_bc_view <- 'v_bc_clusters'
+
+clusters_links_table <- 'clusters_links'
+municipality_shp_table <- 'shp_municipios'
+

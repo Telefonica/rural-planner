@@ -1,0 +1,1 @@
+ALTER TABLE {schema}.{table_roads} ALTER COLUMN geom TYPE Geometry USING ST_SetSRID(geom::geometry, 4326);

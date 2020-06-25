@@ -1,0 +1,99 @@
+dbname <- ''
+host   <- ''
+port   <- ''
+user   <- ''
+pwd    <- ''
+
+schema <- 'rural_planner'
+schema_dev <- 'rural_planner_dev'
+
+### PATHS ###
+input_path_demography <- "~/shared/rural_planner_r/data/br/demography"
+input_path_infrastructure <- "~/shared/rural_planner_r/data/br/infrastructure"
+
+### DEMOGRAPHY TABLES ###
+#Input:
+table_census <- 'br_census_shape'
+table_municipality <- "municipality_shp"
+table_facebook_polygons <- "br_facebook_population_polygons_old"
+
+#Output: 
+table_settlements_dev <- "settlements_dev"
+table_population <- "sett_face_census_all"
+table_municipality_correction <- "municipality_2017_correction"
+table_temp <- "settlements_temp"
+table_zrd <- "settlements_zrd"
+table_settlements <- "settlements"
+
+### INRASTRUCTURE TABLES ###
+table_radio <- "vivo_mw_pops"
+table_fiber <- "vivo_fo_pops"
+table_vivo_test  <- "test_vivo"
+atoll_table_2g <- 'vivo_coverage_site_2g'
+atoll_table_3g <- 'vivo_coverage_site_3g'
+atoll_table_4g <- 'vivo_coverage_site_4g'
+atoll_table_all <- 'vivo_coverage_site'
+table_vivo <- "sites_vivo"
+table_lines_vogel <- "vogel_lines"
+table_lines_all <- "third_party_lines"
+table_points_all <- "third_party_points"
+table_competitors <- "sites_competitors"
+table_competitors_test  <- "test_towers"
+table_lines <- "traces_dev"
+table_points <- "towers_dev"
+table_infrastructure_global <- "infrastructure_global"
+
+### COVERGARE SOURCES ###
+schema_dev <- 'rural_planner_dev'
+schema <- 'rural_planner'
+
+vivo_table_temp <- 'temp_vivo_coverage_polygons'
+movistar_polygons_table <- 'vivo_coverage_polygons'
+
+coverage_input_path <- "~/shared/rural_planner_r/data/br/coverage"
+
+
+table_coverage_competitors_4g <- 'competitors_coverage_polygons_4g_aux'
+table_coverage_competitors_3g <- 'competitors_coverage_polygons_3g_aux'
+table_coverage_competitors <- 'competitors_coverage_polygons_aux'
+
+indirect_polygons_table <- 'indirect_coverage_polygons_aux'
+infrastructure_table <- 'infrastructure_global_aux'
+
+table_settlements <- 'settlements_aux'
+competitors_polygons_table <- 'competitors_coverage_polygons_aux'
+                 
+facebook_polygons_tf_table_2g <- 'br_tef_coverage_polygon_2g'  
+facebook_polygons_tf_table_3g <- 'br_tef_coverage_polygon_3g' 
+facebook_polygons_tf_table_4g <- 'br_tef_coverage_polygon_4g' 
+
+facebook_competitors_polygons_2g <- 'br_all_coverage_polygon_2g'
+facebook_competitors_polygons_3g <- 'br_all_coverage_polygon_3g'
+facebook_competitors_polygons_4g <- 'br_all_coverage_polygon_4g'
+
+table_coverage <- 'coverage_aux'
+table_coverage_zrd <- 'coverage_zrd_aux'
+
+api_id_session1 <- ''    #telefonica1
+api_id_session2 <- ''    #telefonica2
+api_id_session3 <- ''    #telefonica3
+api_id_session4 <- ''    #telefonica4
+api_key <- ''
+url_spain <- 'https://cloudrf.com/API/area' 
+url_uk <- 'https://uk.cloudrf.com/API/area'
+
+input_path_cloudrf <- "~/shared/rural_planner_r/data/br/coverage"
+output_shp_folder_cloudrf <- "api_area_zip"
+shp_folder_unzip <- "api_area_unzip"
+table_final_cloudrf <-  "coverage_settlements_cloudrf_aux"
+
+
+### DASHBOARD SOURCES ###
+settlements_view <-'v_centros_poblados'
+coverage_view <- 'v_coberturas'
+access_transport_view <- 'v_acceso_transporte'
+segmentation_view <- 'v_segmentacion'
+clusters_view <- 'v_clusters'
+segmentation_c_view <- 'v_segmentacion_clusters'
+coverage_c_view <- 'v_coberturas_clusters'
+access_transport_c_view <- 'v_acceso_transporte_clusters'

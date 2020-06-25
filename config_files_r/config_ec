@@ -1,0 +1,73 @@
+dbname <- ''
+host   <- ''
+port   <- ''
+user   <- ''
+pwd    <- ''
+
+
+schema <- "rural_planner"
+schema_dev <- "rural_planner_dev"
+
+
+### DEMOGRAPHY ###
+input_path_demography <- '~/shared/rural_planner_r/data/ec/demography'
+census_file_name <- "CPV2010M_Vivienda.csv"
+projections_file_name <- "Proyeccion_cantonal_total_2010-2020.xlsx"
+
+schema_dev <- 'rural_planner_dev'
+
+table_bbb <- "nodes_bbbike"
+table_pob <- "nodes_poblados"
+table_tow <- "nodes_towns"
+table_poblatowns <- "nodes_poblatowns"
+table_nodes_all <- "nodes_all"
+table_census_pop <- "ec_censo_viviendas"
+table_geo_loc <- "geodatabase_loc_2010"
+table_geo_sec <- "geodatabase_sec_2010"
+table_geo_secdis <- "geodatabase_secdis_2010"
+table_projections <- "population_projections"
+table_households_pop <- "ec_census_households_shp"
+table_parroquias <- "ec_parroquias_shp"
+table_cantones <- "ec_cantones_shp"
+table_settlements <- "settlements"
+table_settlements_v2 <- "settlements_v2"
+
+### INFRASTRUCTURE ###
+input_path_infrastructure <- '~/shared/rural_planner_r/data/ec/infrastructure'
+
+
+###Coverage sources ####
+
+coverage_file_name <- 'Analisis de demanda.xlsx'
+coverage_sheet_name <- "IPT"
+
+coverage_file_name_2 <- 'Listado Telcos LatAm v0.0.xlsx'
+coverage_sheet_name_2 <- 'listado funcional'
+
+schema_dev <- 'rural_planner_dev'
+table_settlements <- 'settlements'
+table_atoll_4g <- "temp_atoll_4g"
+table_atoll_3g <- "temp_atoll_3g"
+table_atoll_2g <- "temp_atoll_2g"
+atoll_polygons_table <- 'movistar_coverage_polygons'
+indirect_polygons_table <- 'indirect_coverage_polygons'
+infrastructure_table <- 'infrastructure_global'
+table_census <- 'ec_census_shape'
+table_coverage <- 'coverage'
+claro_atoll_table <- 'claro_coverage_polygons'
+
+coverage_input_path <- '~/shared/rural_planner_r/data/ec/coverage/'
+
+#### DASHBOARD SOURCES ######
+settlements_view <-'v_centros_poblados'
+coverage_view <- 'v_coberturas'
+access_transport_view <- 'v_acceso_transporte'
+segmentation_view <- 'v_segmentacion'
+clusters_view <- 'v_clusters'
+clusters_kpis_view <- 'v_clusters_kpis'
+segmentation_c_view <- 'v_segmentacion_clusters'
+coverage_c_view <- 'v_coberturas_clusters_all'
+access_transport_c_view <- 'v_acceso_transporte_clusters'
+
+towers_table <- 'infrastructure_global'
+clusters_links_table <- 'clusters_links'

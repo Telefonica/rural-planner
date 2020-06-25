@@ -1,0 +1,101 @@
+sql_path = /home/jovyan/shared/rural_planner_refactoring/sql
+country_folder = br
+
+[db_config]
+database_name = brasil
+user_name = 
+password =
+host = 
+port = 
+
+[api_config]
+apikey =  
+
+[transport_by_tower_params]
+schema  = rural_planner_dev
+
+output_table = transport_by_tower_all
+temporary_table = temp_transport_by_tower_all
+table_infrastructure = infrastructure_global
+
+mw_radius = 40000 
+fiber_radius = 5000
+los_interval = 20
+height_offset = 30
+distance_offset = 500
+sources_omit = -,
+            
+third_party_owners = fiber_providers, other_mnos
+regional_owners = tim,
+
+    [[owners_tx]]
+        [[[vivo]]]
+            owners = VIVO, VIVO_MW, FO VIVO
+            owner_name = vivo
+        [[[tim]]]
+            owners = TIM, TIMLIG_POINTS, TIMLIG_LINES, FO VIVO_UNPRIORITIZED
+            owner_name = tim
+        [[[fiber_providers]]]
+            owners = AVVIO_LINES, COMPULINE_LINES, CTBC_LINES, ELETRONET_17_LINES, ELETRONET_17_POINTS, ELETRONET_LINES, ELETRONET_POINTS, FO 3RD PARTY, G8_LINES, G8_NETWORKS_LINES, G8_NETWORKS_POINTS, G8_POINTS, INFOBARRA_LINES, INFOBARRA_POINTS, INTERNEXA_LINES, INTERNEXA_POINTS, LEVEL3_LINES, LEVEL_3_LINES, LEVEL_3_POINTS, MASTERCABO_LINES, MASTERCABO_POINTS, MOB_ROTAS_LINES, SOUTHTECH_LINES, SOUTHTECH_POINTS, TELEBRAS_LINES, VOGEL_LINES
+            owner_name = fiber_providers
+        [[[other_mnos]]]
+            owners = CLARO, NEXTEL, OI, OI_LINES, OI_POINTS, SERCOMTEL
+            owner_name = other_mnos
+
+[segmentation_params]
+schema  = rural_planner_dev
+
+output_table = segmentation
+table_settlements = settlements
+table_coverage = coverage
+
+[clustering_params]
+schema  = rural_planner_dev
+
+output_table = clusters
+table_settlements = settlements
+table_coverage = coverage
+table_transport = transport_by_tower_all
+table_infrastructure = infrastructure_global
+table_franchises = 
+table_nodes_original = node_table
+table_nodes = node_table_copy
+table_schools = 
+
+max_coverage_radius = 5000
+
+[clustering_3g_params]
+output_table = clusters_3g
+table_nodes = node_table_copy_3g
+table_nodes_original = node_table_3g 
+
+[transport_gf_cl_params]
+output_table = transport_greenfield_clusters
+temporary_table = greenfield_clusters_los
+schema = rural_planner_dev
+
+
+[transport_multihop_params]
+output_table = transport_clusters_multihop
+temporary_table = clusters_satellite_2hops
+schema = rural_planner_dev
+
+
+[clustering_zrd_params]
+schema = rural_planner_dev
+
+output_table = clusters_zrd
+table_settlements_zrd  = settlements_zrd
+table_coverage_zrd  = coverage_zrd
+table_nodes_original = node_table_zrd
+table_nodes     = node_table_copy_zrd
+table_links = clusters_links
+
+max_coverage_radius = 35000
+
+[views_params]
+schema  = rural_planner
+schema_dev = rural_planner_dev
+tables = ,
+views = v_acceso_transporte_clusters.sql, v_acceso_transporte.sql, v_centros_poblados.sql, v_clusters.sql, v_coberturas_clusters_all_br.sql, v_coberturas_clusters_north_3g_br.sql, v_coberturas_clusters_north_all_br.sql, v_coberturas_clusters_north_br.sql, v_coberturas_clusters_north_empty_br.sql, v_coberturas_clusters_north_zrd_br.sql, v_coberturas_clusters.sql, v_coberturas.sql, v_segmentacion_clusters.sql, v_segmentacion.sql
+bc = analisis_clusters_ednei.sql, lines_tx_clusters.sql

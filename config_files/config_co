@@ -1,0 +1,99 @@
+sql_path = /home/jovyan/shared/rural_planner_refactoring/sql
+country_folder = co
+
+[db_config]
+database_name = colombia
+user_name = 
+password = 
+host = 
+port = 
+
+[api_config]
+apikey =  
+
+[transport_by_tower_params]
+schema  = rural_planner_dev
+
+output_table = transport_by_tower_all
+temporary_table = temp_transport_by_tower_all
+table_infrastructure = infrastructure_global
+
+mw_radius = 40000 
+fiber_radius = 2000
+los_interval = 20
+height_offset = 0
+distance_offset = 0
+sources_omit = CLARO,TIGO
+            
+third_party_owners = anditel, azteca, atc, atp, qmc, uniti
+regional_owners = ,
+
+
+    [[owners_tx]]
+        [[[movistar]]]
+            owners = SITES_TEF, PTI
+            owner_name = movistar
+        [[[anditel]]]
+            owners = ANDITEL,
+            owner_name = anditel
+        [[[azteca]]]
+            owners = AZTECA,
+            owner_name = azteca
+        [[[atc]]]
+            owners = ATC,
+            owner_name = atc
+        [[[atp]]]
+            owners = ATP,
+            owner_name = atp
+        [[[qmc]]]
+            owners = QMC,
+            owner_name = qmc
+        [[[uniti]]]
+            owners = UNITI,
+            owner_name = uniti
+            
+[segmentation_params]
+schema  = rural_planner_dev
+
+output_table = segmentation
+table_settlements = settlements
+table_coverage = coverage
+
+[clustering_params]
+schema  = rural_planner_dev
+
+output_table = clusters
+table_settlements = settlements
+table_coverage = coverage
+table_transport = transport_by_tower_all
+table_infrastructure = infrastructure_global
+table_franchises = 
+table_nodes_original = node_table
+table_nodes = node_table_copy
+table_schools = 
+
+max_coverage_radius = 5000
+
+[clustering_3g_params]
+output_table = clusters_3g
+table_nodes = node_table_copy_3g
+table_nodes_original = node_table_3g
+
+[transport_gf_cl_params]
+output_table = transport_greenfield_clusters
+temporary_table = greenfield_clusters_los
+schema = rural_planner_dev
+
+[transport_by_mw_params]
+output_table = transport_clusters
+temporary_table = co_mw_final_clusters
+node_table = co_mw_node_table
+schema = rural_planner_dev
+
+[views_params]
+schema  = rural_planner
+schema_dev = rural_planner_dev
+tables = indirect_covered_population.sql, competitors_presence_towers.sql
+views = v_acceso_transporte_clusters_co.sql,v_bc_clusters.sql,v_centros_poblados_co.sql,v_centros_poblados_kpis_co.sql, v_acceso_transporte_all_co.sql, v_clusters_co.sql, v_clusters_greenfield_transporte.sql, v_clusters_kpis_co.sql, v_clusters_transporte_co.sql, v_coberturas_clusters_all_co.sql, v_coberturas_clusters_co.sql, v_coberturas_co.sql, v_infrastructure_co.sql, v_poblacion_cubierta_indirecta.sql, v_presencia_operadores_clusters.sql, v_presencia_operadores_torres.sql, v_segmentacion_clusters_co.sql, v_segmentacion_co.sql
+
+bc = v_bc_clusters.sql,
