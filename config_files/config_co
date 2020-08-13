@@ -2,7 +2,7 @@ sql_path = /home/jovyan/shared/rural_planner_refactoring/sql
 country_folder = co
 
 [db_config]
-database_name = colombia
+database_name =
 user_name = 
 password = 
 host = 
@@ -89,6 +89,24 @@ output_table = transport_clusters
 temporary_table = co_mw_final_clusters
 node_table = co_mw_node_table
 schema = rural_planner_dev
+
+[transport_multihop_params]
+output_table = transport_clusters_multihop
+temporary_table = clusters_satellite_2hops
+schema = rural_planner_dev
+
+
+[clustering_zrd_params]
+schema = rural_planner_dev
+
+output_table = clusters_zrd
+table_settlements_zrd  = settlements_zrd
+table_coverage_zrd  = coverage_zrd
+table_nodes_original = node_table_zrd
+table_nodes     = node_table_copy_zrd
+table_links = clusters_links
+
+max_coverage_radius = 35000
 
 [views_params]
 schema  = rural_planner

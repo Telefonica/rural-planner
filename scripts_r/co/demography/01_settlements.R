@@ -424,7 +424,7 @@ for (i in (1:nrow(unlocated_settlements))) {
       unlocated_settlements$latitude_google[i] <- as.numeric(as.character(json_data_frame$lat[1]))
       unlocated_settlements$longitude_google[i] <- as.numeric(as.character(json_data_frame$lon[1]))
       unlocated_settlements$source[i]<-"OSM API"
-      updateDBGoogle(schema_dev, table_google, unlocated_settlements$latitude_google[i], unlocated_settlements$longitude_google[i],unlocated_settlements$settlement_id[i])
+      updateDBOSM(schema_dev, table_google, unlocated_settlements$latitude_google[i], unlocated_settlements$longitude_google[i],unlocated_settlements$settlement_id[i])
     }
     Sys.sleep(1)
 }

@@ -1,12 +1,42 @@
-dbname <- ''
-host   <- ''
-port   <- ''
-user   <- ''
-pwd    <- ''
+dbname <- 
+host   <- 
+port   <- 
+user   <- 
+pwd    <- 
 
 schema <- 'rural_planner'
 schema_dev <- 'rural_planner_dev'
 schema_backup <- 'rural_planner_backup'
+
+### DBUpdateSchemas ###
+table_date <- "backup_date"
+
+tables <- c('clusters',
+            'clusters_links',
+            'coverage',
+            'indirect_coverage_polygons',
+            'infrastructure_global',
+            'settlements',
+            'transport_by_settlement',
+            'transport_by_tower_all',
+            'transport_clusters',
+            'transport_greenfield_clusters'
+            )
+
+views <- c('v_acceso_transporte',
+            'v_centros_poblados',
+            'v_centros_poblados_kpis',
+            'v_clusters',
+            'v_clusters_kpis',
+            'v_clusters_transporte',
+            'v_coberturas',
+            'v_coberturas_clusters',
+            'v_coberturas_clusters_all',
+            'v_infrastructure',
+            'v_poblacion_cubierta_indirecta',
+            'v_presencia_operadores_clusters',
+            'v_presencia_operadores_torres')
+            
 
 ### DEMOGRAPHY ###
 input_path_demography <- '~/shared/rural_planner/data/co/demography'
