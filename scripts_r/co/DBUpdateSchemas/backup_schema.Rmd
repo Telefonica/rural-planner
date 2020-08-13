@@ -1,0 +1,83 @@
+---
+title: "Infrastructure Consolidation AR"
+author: "Internet para Todos"
+date: "13 de enero de 2018"
+output: html_document
+---
+
+```{r libraries}
+#Load libraries
+library(RPostgreSQL)
+
+```
+
+```{r}
+#DB Connection parameters
+config_path <- '~/shared/rural_planner_colombia/config_files/.config_co'
+source(config_path)
+```
+
+```{r}
+
+drv <- dbDriver("PostgreSQL")
+con <- dbConnect(drv, dbname = dbname,
+                 host = host, port = port,
+                 user = user, password = pwd) 
+
+schema_pro <- "rural_planner"
+schema_backup <- "rural_planner_backup"
+
+tables <- c('clusters',
+            'clusters_links',
+            'coverage',
+            'indirect_coverage_polygons',
+            'infrastructure_global',
+            'settlements',
+            'transport_by_settlement',
+            'transport_by_tower_all',
+            'transport_clusters',
+            'transport_greenfield_clusters'
+            )
+
+views <- c('v_acceso_transporte',
+            'v_centros_poblados',
+            'v_centros_poblados_kpis',
+            'v_clusters',
+            'v_clusters_kpis',
+            'v_clusters_transporte',
+            'v_coberturas',
+            'v_coberturas_clusters',
+            'v_coberturas_clusters_all',
+            'v_infrastructure',
+            'v_poblacion_cubierta_indirecta',
+            'v_presencia_operadores_clusters',
+            'v_presencia_operadores_torres')
+
+
+for(table in tables){
+  query <- paste0("DROP TABLE IF EXISTS ", schema_backup,".",table)
+  dbGetQuery(con,query)
+}
+
+for(table in tables){
+  query <- paste0("CREATE TABLE ", schema_backup,".",table, " AS 
+                  (SELECT * FROM ", schema_pro, ".", table, " )")
+  dbGetQuery(con,query)
+}
+
+
+table_date <- "backup_date"
+  
+query <- paste0("CREATE TABLE ", schema_backup,".",table_date, " (date text)")
+dbGetQuery(con,query)
+
+query <- paste0("TRUNCATE TABLE ", schema_backup,".",table_date)
+dbGetQuery(con,query)
+
+query <- paste0("INSERT INTO ", schema_backup,".",table_date, "(date) VALUES ('",Sys.Date(),"')")
+dbGetQuery(con,query)
+
+dbDisconnect(con)
+
+```
+
